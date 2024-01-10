@@ -1,4 +1,3 @@
-import CurrencyFormat from 'react-currency-format';
 import { useDispatch, useSelector } from 'react-redux';
 import { sortSales } from '../../state/stackline-data/stackline-data';
 import { RootState } from '../../state/store';
@@ -7,6 +6,12 @@ import './ProductSales.css';
 const ProductSales = () => {
   const product = useSelector((state: RootState) => state.info);
   const dispatch = useDispatch();
+
+  const dollarUS = Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumSignificantDigits: 6,
+  });
 
   return (
     <div className="sales">
@@ -62,29 +67,14 @@ const ProductSales = () => {
           <div className="sales-data-container" key={i * Math.random()}>
             <div className="sales-data">{sale.weekEnding}</div>
             <div className="sales-data">
-              <CurrencyFormat
-                value={sale.retailSales}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              />
+              {dollarUS.format(sale.retailSales)}
             </div>
             <div className="sales-data">
-              <CurrencyFormat
-                value={sale.wholesaleSales}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              />
+              {dollarUS.format(sale.wholesaleSales)}
             </div>
             <div className="sales-data">{sale.unitsSold}</div>
             <div className="sales-data">
-              <CurrencyFormat
-                value={sale.retailerMargin}
-                displayType={'text'}
-                thousandSeparator={true}
-                prefix={'$'}
-              />
+              {dollarUS.format(sale.retailerMargin)}
             </div>
           </div>
         );

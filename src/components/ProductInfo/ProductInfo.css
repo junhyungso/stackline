@@ -1,0 +1,35 @@
+.product {
+  background-color: white;
+  box-shadow: 10px 5px 5px  rgba(0,0,0, 0.1);
+  margin: 10px 10px;
+}
+
+.product-image {
+  margin-top: 20px;
+}
+
+.product-title {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.product-subtitle {
+  font-size: 12px;
+  color:darkgray;
+  margin: 0px 10px;
+}
+
+.product-tags {
+  display: flex;
+  margin: 20px 0px 0px 10px;
+  align-items: center;
+
+}
+.product-tag {
+  border: 2px solid gainsboro;
+  border-radius: 5px;
+  height: 20px;
+  font-size: 12px;
+  margin: 0px 10px;
+  padding: 3px 2px;
+}
